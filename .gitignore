@@ -1,8 +1,5 @@
 node_modules
 .npmrc
-index.ts
-common
-tsconfig.json
-metric-decorators
+index.js
 
-!lib/*
+lib

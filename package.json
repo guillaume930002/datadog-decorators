@@ -1,18 +1,37 @@
 {
   "name": "datadog-decorators",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "custom decorators for requests measuring metric",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc"
   },
-  "author": "guillaume90002",
+  "keywords": [
+    "datadog",
+    "decorator",
+    "nestjs",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guillaume930002/datadog-decorators.git"
+  },
+  "author": "guillaume930002",
   "license": "MIT",
   "dependencies": {
     "hot-shots": "^10.0.0"
   },
   "devDependencies": {
     "typescript": "^4.7.3"
+  },
+  "publishConfig": {
+    "ignore": [
+      "index.ts",
+      "tsconfig.json",
+      "common",
+      "metric-decorators",
+      "!lib/*"
+    ]
   }
 }
