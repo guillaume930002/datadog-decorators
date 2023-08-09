@@ -60,7 +60,7 @@ export class TestController {
 
 ```
 
-### Available decorators
+## Available decorators
 | Decorators | Note |
 | --- | --- |
 | `ApiUsage` | measure total number of api calls |
