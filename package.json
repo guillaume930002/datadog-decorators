@@ -27,11 +27,6 @@
   },
   "publishConfig": {
     "ignore": [
-      "index.ts",
-      "tsconfig.json",
-      "common",
-      "metric-decorators",
-      "!lib/*"
     ]
   }
 }
