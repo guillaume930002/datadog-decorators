@@ -1,6 +1,6 @@
 {
   "name": "datadog-decorators",
-  "version": "1.0.4",
+  "version": "1.0.3",
   "description": "custom decorators for requests measuring metric",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -26,6 +26,12 @@
     "typescript": "^4.7.3"
   },
   "publishConfig": {
-    "ignore": []
+    "ignore": [
+      "index.ts",
+      "tsconfig.json",
+      "common",
+      "metric-decorators",
+      "!lib/*"
+    ]
   }
 }
