@@ -65,6 +65,5 @@ export class TestController {
 | --- | --- |
 | `ApiUsage` | measure total number of api calls |
 | `ErrorRate` | measure error rate and success rate in total |
-| `RequestRate` | measure request rate per minute |
 | `RequestVolume` | measure total of requests |
 | `ResponseTime` | measure API's response time |

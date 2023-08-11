@@ -1,5 +1,5 @@
 import { Controller, applyDecorators } from '@nestjs/common';
-import { ResponseTime, ErrorRate, RequestVolume, ApiUsage, RequestRate } from './metrics';
+import { ResponseTime, ErrorRate, RequestVolume, ApiUsage } from './metrics';
 
 export function MetricsCollector(tags?: { [key: string]: string }) {
   return applyDecorators(
@@ -8,6 +8,5 @@ export function MetricsCollector(tags?: { [key: string]: string }) {
     ResponseTime(tags),
     RequestVolume(tags),
     ApiUsage(tags),
-    RequestRate(tags),
   );
 };
