@@ -1,6 +1,6 @@
 import { applyDecorators, UseInterceptors } from '@nestjs/common';
 import { tap } from 'rxjs';
-import { iterateTags } from '../../common';
+import { getNetricPrefix, iterateTags } from '../../common';
 
 const StatsD = require('hot-shots');
 const dogStatsD = new StatsD();
@@ -14,7 +14,7 @@ export function RequestVolume(tags?: any) {
         return next.handle().pipe(
           tap(() => {
             const dogTags = [`path:${request.path}`, `method:${request.method}`, ...iterateTags(tags)];
-            dogStatsD.increment('my_collector.request_volume', 1, dogTags);
+            dogStatsD.increment(getNetricPrefix() + '.request_volume', 1, dogTags);
           }),
         );
       }

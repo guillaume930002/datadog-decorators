@@ -1,6 +1,6 @@
 import { applyDecorators, UseInterceptors } from '@nestjs/common';
 import { tap } from 'rxjs';
-import { iterateTags } from '../../common';
+import { getNetricPrefix, iterateTags } from '../../common';
 
 const StatsD = require('hot-shots');
 const dogStatsD = new StatsD();
@@ -20,7 +20,7 @@ export function ResponseTime(tags?: any) {
             const dogTags = [`path:${request.path}`, `method:${request.method}`, ...iterateTags(tags)];
 
             // Send the metric to Datadog
-            dogStatsD.histogram('my_collector.response_time', elapsedMilliseconds, dogTags);
+            dogStatsD.histogram(getNetricPrefix() + '.response_time', elapsedMilliseconds, dogTags);
           }),
         );
       }

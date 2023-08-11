@@ -1,6 +1,6 @@
 import { applyDecorators, UseInterceptors } from '@nestjs/common';
 import { tap } from 'rxjs';
-import { iterateTags } from '../../common';
+import { getNetricPrefix, iterateTags } from '../../common';
 
 const StatsD = require('hot-shots');
 const dogStatsD = new StatsD();
@@ -20,12 +20,12 @@ export function ErrorRate(tags?: any) {
             if (response.statusCode >= 400) {
               errorCount++;
               const errorRate = errorCount / reqTotal;
-              dogStatsD.gauge('my_collector.error_rate', errorRate, dogTags);
+              dogStatsD.gauge(getNetricPrefix() + '.error_rate', errorRate, dogTags);
             }
             if (response.statusCode == 200) {
               successCount++;
               const successRate = successCount / reqTotal;
-              dogStatsD.gauge('my_collector.success_rate', successRate, dogTags);
+              dogStatsD.gauge(getNetricPrefix() + '.success_rate', successRate, dogTags);
             }
           }),
         );

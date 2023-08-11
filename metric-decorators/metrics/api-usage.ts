@@ -1,6 +1,6 @@
 import { UseInterceptors, applyDecorators } from '@nestjs/common';
 import { tap } from 'rxjs/operators';
-import { iterateTags } from '../../common';
+import { iterateTags, getNetricPrefix } from '../../common';
 
 const StatsD = require('hot-shots');
 const dogStatsD = new StatsD();
@@ -17,7 +17,7 @@ export function ApiUsage(tags?: any) {
             const dogTags = [`path:${request.path}`, `method:${request.method}`, ...iterateTags(tags)];
 
             // Send metric to Datadog
-            dogStatsD.increment('my_collector.api_endpoint_calls', 1, dogTags);
+            dogStatsD.increment(getNetricPrefix() + '.api_endpoint_calls', 1, dogTags);
           }),
         );
       }

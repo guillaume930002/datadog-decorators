@@ -60,10 +60,13 @@ export class TestController {
 
 ```
 
+
+> **_NOTE:_**  The default metric prefix is 'my_collector'. To change this, you can set the environment variable DD_METRIC_PREFIX in your .env file
+
 ## Available decorators
-| Decorators | Note |
-| --- | --- |
-| `ApiUsage` | measure total number of api calls |
-| `ErrorRate` | measure error rate and success rate in total |
-| `RequestVolume` | measure total of requests |
-| `ResponseTime` | measure API's response time |
+| Decorators | Note | Datadog Metric Name
+| --- | --- | --- |
+| `ApiUsage` | measure total number of api calls | `api_usage` |
+| `ErrorRate` | measure error rate and success rate in total | `error_rate` |
+| `RequestVolume` | measure total of requests | `request_volume` |
+| `ResponseTime` | measure API's response time | `response_time` |
